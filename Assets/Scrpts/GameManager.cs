@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public GameObject KeyIconActive3;//酒アイコン バック
 
     public GameObject ImageTanuki;//たぬき
+    public GameObject Rect4;//レクト4
 
     public GameObject ImageEleOpen;//開いたエレベーター
     public GameObject ImageSoujiOpen;//開いた掃除箱
@@ -207,6 +208,7 @@ public class GameManager : MonoBehaviour
             KeyIconActive3.SetActive(false);
             ImageTanuki.SetActive(false);
             ImageChaki2.SetActive(true);
+            Rect4.SetActive(true);
             ImageChaki.SetActive(false);
         }
     }
@@ -315,7 +317,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            DisplayMessage("エレベーターが動くぞ！");
+            DisplayMessage("エレベーターが開いたぞ！！！\nこれで、脱出できる！！！");
+            audioSource.PlayOneShot(ChakiSe);
             ImageEleOpen.SetActive(true);
             CardIcon.SetActive(false);
             KeyIconActive4.SetActive(false);
@@ -325,7 +328,6 @@ public class GameManager : MonoBehaviour
     //エレベーターをクリック
     public void PushEleOpenButton()
     {
-        audioSource.PlayOneShot(ClearSe);
         SceneManager.LoadScene("End");
     }
 
