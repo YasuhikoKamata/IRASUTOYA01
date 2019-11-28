@@ -89,24 +89,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
     }
-    //掃除　ボタン１をクリック
-    public void PushButtonMark1 ()
-    {
-        ChangeButtonColor (0);
-    }
-　   //掃除　ボタン2をクリック
-    public void PushButtonMark2()
-    {
-        ChangeButtonColor(1);
-    }
-　   //掃除　ボタン3をクリック
-    public void PushButtonMark3()
-    {
-        ChangeButtonColor(2);
-    }
-
-    //ボタンの色を変更
-    void ChangeButtonColor(int buttonNo)
+    
+  //ボタンの色を変更
+    public void ChangeButtonColor(int buttonNo)
     {
         buttonColor[buttonNo]++;
 
@@ -116,7 +101,6 @@ public class GameManager : MonoBehaviour
         }
         buttonMark[buttonNo].GetComponent<Image>().sprite =
             buttonPicture[buttonColor[buttonNo]];
-
 
     //ボタンのマークをチェック
         if ((buttonColor[0] == MARK_00) &&
@@ -139,6 +123,73 @@ public class GameManager : MonoBehaviour
         buttonMessageText.GetComponent<Text>().text = mes;
     }
 
+    public void SelectKeyIconActive(int activeTarget)　//アイコンを選択
+    {
+        if (activeTarget == 1)
+        {
+            KeyIconActive.SetActive(true);
+            KeyIconActive2.SetActive(false);
+            KeyIconActive3.SetActive(false);
+            KeyIconActive4.SetActive(false);
+
+            doesHaveKey = true;
+            doesHaveSake = false;
+            doesHaveHammer = false;
+            doesHaveCard = false;
+
+        }
+        else if (activeTarget == 2)
+        {
+            KeyIconActive.SetActive(false);
+            KeyIconActive2.SetActive(true);
+            KeyIconActive3.SetActive(false);
+            KeyIconActive4.SetActive(false);
+
+            doesHaveKey = false;
+            doesHaveSake = true;
+            doesHaveHammer = false;
+            doesHaveCard = false;
+        }
+        else if (activeTarget == 3)
+        {
+            KeyIconActive.SetActive(false);
+            KeyIconActive2.SetActive(false);
+            KeyIconActive3.SetActive(true);
+            KeyIconActive4.SetActive(false);
+
+            doesHaveKey = false;
+            doesHaveSake = false;
+            doesHaveHammer = true;
+            doesHaveCard = false;
+        }
+        else 
+        {
+            KeyIconActive.SetActive(false);
+            KeyIconActive2.SetActive(false);
+            KeyIconActive3.SetActive(false);
+            KeyIconActive4.SetActive(true);
+
+            doesHaveKey = false;
+            doesHaveSake = false;
+            doesHaveHammer = false;
+            doesHaveCard = true;
+        }
+    }
+    //すべてのアイコム選択を解除
+    void DeselectKeyIconActive()
+    {
+        KeyIconActive.SetActive(false);
+        KeyIconActive2.SetActive(false);
+        KeyIconActive3.SetActive(false);
+        KeyIconActive4.SetActive(false);
+
+        doesHaveKey = false;
+        doesHaveSake = false;
+        doesHaveHammer = false;
+        doesHaveCard = false;
+    }
+
+
     //酒をクリックしたらパネルとメッセージを表示
     public void OnClickImageSake(GameObject icon)
     {
@@ -148,21 +199,7 @@ public class GameManager : MonoBehaviour
         DisplayMessage("こ、これは・・・銘酒「日本酒」だ！");
         ImageSake.SetActive(false);
         SakeIcon.SetActive(true);
-    }
-
-    //酒アイコンをクリックしたらアクティブパネルを表示
-    public void OnClickSakeIcon()
-    {
-        if (doesHaveSake == false)
-        {
-            KeyIconActive3.SetActive(true);
-            doesHaveSake = true;//酒フラグ　ON
-        }
-        else
-        {
-            KeyIconActive3.SetActive(false);
-            doesHaveSake = false;//鍵フラグ　Off
-        }
+        DeselectKeyIconActive();
     }
 
     //鍵をクリックしたらパネルとメッセージを表示
@@ -174,21 +211,7 @@ public class GameManager : MonoBehaviour
         DisplayMessage("バケツの底に鍵を見つけたぞ！");
         ImageKey.SetActive(false);
         KeyIcon.SetActive(true);
-    }
-
-    //鍵アイコンをクリックしたらアクティブパネルを表示
-    public void OnClickKeyIcon()
-    {
-    if (doesHaveKey == false)
-        {
-            KeyIconActive.SetActive(true);
-            doesHaveKey = true;//鍵フラグ　ON
-        }
-        else
-        {
-            KeyIconActive.SetActive(false);
-            doesHaveKey = false;//鍵フラグ　Off
-        }
+        DeselectKeyIconActive();
     }
 
     //タヌキをクリックしたらメッセージを表示して、書き換え
@@ -210,6 +233,7 @@ public class GameManager : MonoBehaviour
             ImageChaki2.SetActive(true);
             Rect4.SetActive(true);
             ImageChaki.SetActive(false);
+            DeselectKeyIconActive();
         }
     }
 
@@ -222,21 +246,6 @@ public class GameManager : MonoBehaviour
         DisplayMessage("ハンマーを見つけたぞ！");
         ImageHammer.SetActive(false);
         HammerIcon.SetActive(true);
-    }
-
-    //ハンマーアイコンをクリックしたアクティブパネルを表示
-    public void OnClickHammerIcon()
-    {
-        if (doesHaveHammer == false)
-        {
-            KeyIconActive2.SetActive(true);
-            doesHaveHammer = true;//ハンマーフラグ　ON
-        }
-        else
-        {
-            KeyIconActive2.SetActive(false);
-            doesHaveHammer = false;//鍵フラグ　Off
-        }
     }
 
     //ロッカーをタップ
@@ -254,6 +263,7 @@ public class GameManager : MonoBehaviour
             KeyIcon.SetActive(false);
             KeyIconActive.SetActive(false);
             ImageLockerOpen.SetActive(true);
+            DeselectKeyIconActive();
         }
     }
 
@@ -277,6 +287,7 @@ public class GameManager : MonoBehaviour
                 HammerIcon.SetActive(false);
                 KeyIconActive2.SetActive(false);
                 ImageCard.SetActive(true);
+                DeselectKeyIconActive();
             }
         }
     }
@@ -289,21 +300,7 @@ public class GameManager : MonoBehaviour
         DisplayMessage("カードキーを見つけたぞ！");
         ImageCard.SetActive(false);
         CardIcon.SetActive(true);
-    }
-
-    //カードアイコンをクリックしたアクティブパネルを表示
-    public void OnClickCardIcon()
-    {
-        if (doesHaveCard == false)
-        {
-            KeyIconActive4.SetActive(true);
-            doesHaveCard = true;//カードフラグ　ON
-        }
-        else
-        {
-            KeyIconActive4.SetActive(false);
-            doesHaveCard = false;//カードフラグ　Off
-        }
+        DeselectKeyIconActive();
     }
 
     //エレベーターをクリック
@@ -322,6 +319,7 @@ public class GameManager : MonoBehaviour
             ImageEleOpen.SetActive(true);
             CardIcon.SetActive(false);
             KeyIconActive4.SetActive(false);
+            DeselectKeyIconActive();
         }
     }
 

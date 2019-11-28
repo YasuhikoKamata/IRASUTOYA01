@@ -294,12 +294,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1447816932}
-        m_MethodName: OnClickCardIcon
-        m_Mode: 1
+        m_MethodName: SelectKeyIconActive
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2032,8 +2032,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1447816932}
-        m_MethodName: PushButtonMark1
-        m_Mode: 1
+        m_MethodName: ChangeButtonColor
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4435,12 +4435,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1447816932}
-        m_MethodName: PushButtonMark3
-        m_Mode: 1
+        m_MethodName: ChangeButtonColor
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5061,12 +5061,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1447816932}
-        m_MethodName: OnClickSakeIcon
-        m_Mode: 1
+        m_MethodName: SelectKeyIconActive
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6429,7 +6429,7 @@ MonoBehaviour:
   ImageHammer: {fileID: 1545352505}
   HammerPanel: {fileID: 1758220437}
   HammerIcon: {fileID: 1884216483}
-  KeyIconActive2: {fileID: 470928534}
+  KeyIconActive2: {fileID: 2139825618}
   ImageButaB: {fileID: 1258781144}
   ImageButaB2: {fileID: 81031279}
   ImageCard: {fileID: 744982453}
@@ -6439,7 +6439,7 @@ MonoBehaviour:
   ImageSake: {fileID: 1310075935}
   SakePanel: {fileID: 566698547}
   SakeIcon: {fileID: 1229138271}
-  KeyIconActive3: {fileID: 2139825618}
+  KeyIconActive3: {fileID: 470928534}
   ImageTanuki: {fileID: 1480469532}
   Rect4: {fileID: 629714376}
   ImageEleOpen: {fileID: 972977735}
@@ -7599,12 +7599,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1447816932}
-        m_MethodName: PushButtonMark2
-        m_Mode: 1
+        m_MethodName: ChangeButtonColor
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7950,12 +7950,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1447816932}
-        m_MethodName: OnClickKeyIcon
-        m_Mode: 1
+        m_MethodName: SelectKeyIconActive
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8827,12 +8827,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1447816932}
-        m_MethodName: OnClickHammerIcon
-        m_Mode: 1
+        m_MethodName: SelectKeyIconActive
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
